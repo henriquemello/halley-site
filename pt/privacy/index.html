@@ -11,12 +11,20 @@
 body { margin:0; min-height:100vh; background:linear-gradient(180deg,var(--bg1),var(--bg2)) fixed; color:var(--ink);
   font: 17px/1.65 ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
-header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:28px; }
+header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.lang { display:inline-flex; padding:3px; border-radius:999px; background:var(--surface); border:1px solid var(--outline); }
+.lang a { min-width:44px; text-align:center; padding:5px 12px; border-radius:999px; font-size:13px; font-weight:700;
+  letter-spacing:.06em; color:var(--muted); text-decoration:none; }
+.lang a:hover { color:var(--ink); }
+.lang a[aria-current] { background:var(--violet); color:#140F33; }
+nav.tabs { display:flex; gap:6px; margin-bottom:22px; border-bottom:1px solid var(--outline); }
+nav.tabs a { padding:10px 14px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:600;
+  border-bottom:2px solid transparent; margin-bottom:-1px; }
+nav.tabs a:hover { color:var(--ink); }
+nav.tabs a[aria-current] { color:var(--ink); border-bottom-color:var(--violet); }
 .brand { display:flex; align-items:center; gap:10px; color:var(--ink); text-decoration:none; font-weight:800; font-size:20px; }
 .brand span { font-size:26px; }
-nav a { color:var(--muted); text-decoration:none; margin-left:16px; font-size:15px; }
-nav a:hover { color:var(--ink); }
-article { background:var(--surface); border:1px solid var(--outline); border-radius:22px; padding:28px 28px 20px; }
+article { overflow-wrap:anywhere; background:var(--surface); border:1px solid var(--outline); border-radius:22px; padding:28px 28px 20px; }
 h1 { font-size:32px; line-height:1.2; margin:0 0 6px; }
 h2 { font-size:21px; margin:30px 0 6px; color:var(--ink); }
 p, li { color:#D9D5F5; }
@@ -25,15 +33,16 @@ a { color:var(--cyan); }
 strong { color:var(--ink); }
 ul { padding-left:22px; }
 footer { margin-top:28px; color:var(--muted); font-size:14px; text-align:center; }
-@media (max-width:520px) { article { padding:22px 18px 14px; } h1 { font-size:27px; } nav a { margin-left:10px; } }
+@media (max-width:520px) { article { padding:22px 18px 14px; } h1 { font-size:27px; } nav.tabs a { padding:10px 10px; } }
 </style>
 </head>
 <body>
 <main>
 <header>
-  <a class="brand" href="/support/"><span>🌙</span>Halley</a>
-  <nav><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/" lang="en">English</a></nav>
+  <a class="brand" href="/pt/support/"><span>🌙</span>Halley</a>
+  <div class="lang" role="group" aria-label="Language / Idioma"><a href="/privacy/" lang="en" hreflang="en">EN</a><a href="/pt/privacy/" lang="pt-BR" hreflang="pt-BR" aria-current="page">PT</a></div>
 </header>
+<nav class="tabs"><a href="/pt/support/">Suporte</a><a href="/pt/privacy/" aria-current="page">Privacidade</a><a href="/pt/terms/">Termos</a></nav>
 <article>
 <h1>Política de Privacidade</h1>
 <p><em>Última atualização: 12 de novembro de 2026</em></p>
@@ -49,7 +58,7 @@ footer { margin-top:28px; color:var(--muted); font-size:14px; text-align:center;
 <h2>Compras</h2>
 <p>Os pagamentos são processados pela Apple. Não temos acesso aos seus dados de pagamento. Usamos o RevenueCat para gerenciar a assinatura e os pacotes: ele recebe o identificador da sua conta e o histórico de compras na App Store. Guardamos o status da sua assinatura (plano e validade) e o saldo de gerações extras.</p>
 <h2>Dados de uso</h2>
-<p>Usamos o PostHog, com servidores na União Europeia, para entender como o app é usado: telas visitadas, uso de funcionalidades e informações técnicas do aparelho e do app. Depois do login, esses eventos ficam associados ao identificador da sua conta. Você pode desativar o envio a qualquer momento em Perfil → Compartilhar dados de uso.</p>
+<p>Usamos o PostHog, com servidores na União Europeia, para entender como o app é usado: telas visitadas, uso de funcionalidades e informações técnicas do aparelho e do app. Depois do login, esses eventos ficam associados ao identificador da sua conta. Você pode desativar o envio a qualquer momento em Conta → Compartilhar dados de uso.</p>
 <h2>Onde os dados ficam</h2>
 <p>Nosso servidor (Supabase) fica na União Europeia. O Google, o RevenueCat e a Apple podem processar dados fora da UE. Nesses casos, as transferências são protegidas por cláusulas contratuais padrão ou mecanismos equivalentes.</p>
 <h2>Bases legais</h2>
@@ -57,7 +66,7 @@ footer { margin-top:28px; color:var(--muted); font-size:14px; text-align:center;
 <h2>Por quanto tempo</h2>
 <p>Mantemos os dados da conta enquanto ela existir. A contagem de gerações é registrada por mês. Os dados de uso são mantidos pelo tempo necessário para análise e depois excluídos ou anonimizados.</p>
 <h2>Seus direitos</h2>
-<p>Você pode excluir sua conta a qualquer momento no app, em Perfil → Excluir conta. Isso apaga a conta, o saldo de gerações extras e a contagem de uso; seus baralhos continuam no aparelho. Excluir a conta não cancela uma assinatura: faça isso nos Ajustes da sua conta Apple.</p>
+<p>Você pode excluir sua conta a qualquer momento no app, em Conta → Excluir conta. Isso apaga a conta, o saldo de gerações extras e a contagem de uso; seus baralhos continuam no aparelho. Excluir a conta não cancela uma assinatura: faça isso nos Ajustes da sua conta Apple.</p>
 <p>Você também pode pedir acesso, correção, exclusão ou portabilidade dos seus dados e se opor a tratamentos baseados em interesse legítimo, escrevendo para <a href="mailto:contact@hmello.com">contact@hmello.com</a>. Você também pode apresentar uma reclamação à autoridade de proteção de dados do seu país (na Espanha, a AEPD).</p>
 <h2>Crianças</h2>
 <p>O Halley não é direcionado a menores de 13 anos, e não coletamos conscientemente dados de crianças.</p>

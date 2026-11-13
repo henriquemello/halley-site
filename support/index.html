@@ -11,12 +11,20 @@
 body { margin:0; min-height:100vh; background:linear-gradient(180deg,var(--bg1),var(--bg2)) fixed; color:var(--ink);
   font: 17px/1.65 ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
-header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:28px; }
+header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.lang { display:inline-flex; padding:3px; border-radius:999px; background:var(--surface); border:1px solid var(--outline); }
+.lang a { min-width:44px; text-align:center; padding:5px 12px; border-radius:999px; font-size:13px; font-weight:700;
+  letter-spacing:.06em; color:var(--muted); text-decoration:none; }
+.lang a:hover { color:var(--ink); }
+.lang a[aria-current] { background:var(--violet); color:#140F33; }
+nav.tabs { display:flex; gap:6px; margin-bottom:22px; border-bottom:1px solid var(--outline); }
+nav.tabs a { padding:10px 14px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:600;
+  border-bottom:2px solid transparent; margin-bottom:-1px; }
+nav.tabs a:hover { color:var(--ink); }
+nav.tabs a[aria-current] { color:var(--ink); border-bottom-color:var(--violet); }
 .brand { display:flex; align-items:center; gap:10px; color:var(--ink); text-decoration:none; font-weight:800; font-size:20px; }
 .brand span { font-size:26px; }
-nav a { color:var(--muted); text-decoration:none; margin-left:16px; font-size:15px; }
-nav a:hover { color:var(--ink); }
-article { background:var(--surface); border:1px solid var(--outline); border-radius:22px; padding:28px 28px 20px; }
+article { overflow-wrap:anywhere; background:var(--surface); border:1px solid var(--outline); border-radius:22px; padding:28px 28px 20px; }
 h1 { font-size:32px; line-height:1.2; margin:0 0 6px; }
 h2 { font-size:21px; margin:30px 0 6px; color:var(--ink); }
 p, li { color:#D9D5F5; }
@@ -25,25 +33,26 @@ a { color:var(--cyan); }
 strong { color:var(--ink); }
 ul { padding-left:22px; }
 footer { margin-top:28px; color:var(--muted); font-size:14px; text-align:center; }
-@media (max-width:520px) { article { padding:22px 18px 14px; } h1 { font-size:27px; } nav a { margin-left:10px; } }
+@media (max-width:520px) { article { padding:22px 18px 14px; } h1 { font-size:27px; } nav.tabs a { padding:10px 10px; } }
 </style>
 </head>
 <body>
 <main>
 <header>
   <a class="brand" href="/support/"><span>🌙</span>Halley</a>
-  <nav><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
+  <div class="lang" role="group" aria-label="Language / Idioma"><a href="/support/" lang="en" hreflang="en" aria-current="page">EN</a><a href="/pt/support/" lang="pt-BR" hreflang="pt-BR">PT</a></div>
 </header>
+<nav class="tabs"><a href="/support/" aria-current="page">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
 <article>
 <h1>Halley Support</h1>
 <p>Need help with Halley? Write to <strong><a href="mailto:contact@hmello.com">contact@hmello.com</a></strong> and we'll get back to you as soon as we can. Please include your iPhone model and iOS version if something isn't working.</p>
 <h2>Frequently asked questions</h2>
-<p><strong>How do I generate cards with AI?</strong> Sign in with Apple or Google (Profile → Sign in), open a deck and tap <strong>Generate with AI</strong>. You can ask for any topic, paste your notes, pick a PDF, take a photo or use a YouTube video's captions. You review every card before it's added.</p>
+<p><strong>How do I generate cards with AI?</strong> Sign in with Apple or Google (Account → Sign in), open a deck and tap <strong>Generate with AI</strong>. You can ask for any topic, paste your notes, pick a PDF, take a photo or use a YouTube video's captions. You review every card before it's added.</p>
 <p><strong>How many AI generations do I get?</strong> Free accounts get 4 generations every month. Halley Plus gives you 20 a month, the most powerful AI model and much bigger PDFs. Packs of 10 extra generations never expire.</p>
 <p><strong>How do I cancel Halley Plus?</strong> Open the <strong>Settings</strong> app on your iPhone → your name → <strong>Subscriptions</strong> → <strong>Halley</strong> → <strong>Cancel Subscription</strong>. You keep Plus until the end of the period you've already paid for.</p>
-<p><strong>How do I restore my purchases?</strong> Sign in with the same account you used to buy, then go to Profile → <strong>Halley Plus</strong> → <strong>Restore purchases</strong>.</p>
+<p><strong>How do I restore my purchases?</strong> Sign in with the same account you used to buy, then go to Account → <strong>Halley Plus</strong> → <strong>Restore purchases</strong>.</p>
 <p><strong>Where are my decks stored?</strong> On your iPhone. Your decks, cards and study history work offline and are not sent to us. Deleting the app also deletes them.</p>
-<p><strong>How do I delete my account?</strong> In the app, go to Profile → <strong>Delete account</strong>. This erases your account, your extra generations and your usage count. Your decks stay on your iPhone. Deleting the account does not cancel a subscription; cancel it in the Settings app as described above.</p>
+<p><strong>How do I delete my account?</strong> In the app, go to Account → <strong>Delete account</strong>. This erases your account, your extra generations and your usage count. Your decks stay on your iPhone. Deleting the account does not cancel a subscription; cancel it in the Settings app as described above.</p>
 <h2>Legal</h2>
 <ul><li><a href="https://halley.hmello.com/privacy/">Privacy Policy</a></li><li><a href="https://halley.hmello.com/terms/">Terms of Use</a></li></ul>
 </article>
